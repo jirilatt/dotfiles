@@ -1,3 +1,6 @@
 {{ if ne .chezmoi.os "windows" }}
 AppData
+.local/bin/chezmoi-lazygit.cmd
+{{ else }}
+.local/bin/chezmoi-lazygit
 {{ end }}
