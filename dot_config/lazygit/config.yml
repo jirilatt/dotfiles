@@ -1,2 +1,5 @@
 gui:
   nerdFontsVersion: "3"
+git:
+  allBranchesLogCmds:
+    - git log --graph --all --color=always --abbrev-commit --decorate --oneline --
