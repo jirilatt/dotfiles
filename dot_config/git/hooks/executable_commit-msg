@@ -1,6 +1,6 @@
 #!/bin/sh
 
-commitlint --edit "$1"
+commitlint --edit "$1" || exit 1
 
 # Still run the repo's own commit-msg hook, if it has one
 repo_hook="$(git rev-parse --git-dir)/hooks/commit-msg"
