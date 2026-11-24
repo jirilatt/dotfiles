@@ -1,17 +1,6 @@
 #!/bin/sh
 
-if [ -n "$LOCALAPPDATA" ]; then
-  MASON="$LOCALAPPDATA/nvim-data/mason"
-else
-  MASON="${XDG_DATA_HOME:-$HOME/.local/share}/nvim/mason"
-fi
-CL="$MASON/packages/commitlint/node_modules"
-
-node "$CL/@commitlint/cli/lib/cli.js" \
-  --color=false \
-  --extends "$CL/@commitlint/config-conventional/lib/index.js" \
-  --config "$HOME/.config/commitlint/.commitlintrc.json" \
-  --edit "$1" || exit 1
+commitlint --edit "$1"
 
 # Still run the repo's own commit-msg hook, if it has one
 repo_hook="$(git rev-parse --git-dir)/hooks/commit-msg"
